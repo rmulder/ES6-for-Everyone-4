@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>用解构交换变量</title>
+</head>
+<body>
+<script>
+  let inRing = 'Hulk Hogan';
+  let onSide = 'The Rock';
+  console.log(inRing);    //Hulk Hogan
+  console.log(onSide);    //The Rock
+
+  [inRing, onSide] = [onSide, inRing];
+  console.log(inRing);    //The Rock
+  console.log(onSide);    //Hulk Hogan
+
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>解构数组</title>
+</head>
+<body>
+<script>
+  const details = ['Wes Bos', 123, 'wesbos.com'];
+  const [name, id, website] = details;
+  console.log(name);
+  console.log(id);
+  console.log(website);
+
+  const data = 'Basketball,Sports,90210,23';
+  const [itemName, category, sku, inventory] = data.split(',');
+  console.log(itemName);        //Basketball
+  console.log(category);        //Sports
+  console.log(sku);             //90210
+  console.log(inventory);       //23
+
+  const team = ['Wes', 'Harry', 'Sarah', 'Keegan', 'Riker'];
+  const [captain, assistant, ...players] = team;
+  console.log(captain);         //Wes
+  console.log(assistant);       //Harry
+  console.log(players);         //["Sarah", "Keegan", "Riker"]
+
+</script>
+</body>
+</html>

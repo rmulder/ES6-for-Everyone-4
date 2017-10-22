@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>函数解构</title>
+</head>
+<body>
+<script>
+  function convertCurrency(amount) {
+    const converted = {
+      USD: amount * 0.76,
+      GPB: amount * 0.53,
+      AUD: amount * 1.01,
+      MEX: amount * 13.30
+    };
+    return converted;
+  }
+
+  const hundo = convertCurrency(100);
+  console.log(hundo.USD);   //76
+  console.log(hundo.GPB);   //53
+  console.log(hundo.AUD);   //101
+  console.log(hundo.MEX);   //1330
+
+  // 顺序无关
+  const { USD, GPB, AUD, MEX } = convertCurrency(100);
+  console.log(USD);         //76
+  console.log(GPB);         //53
+  console.log(AUD);         //101
+  console.log(MEX);         //1330
+
+  function tipCalc({ total = 100, tip = 0.15, tax = 0.13 } = {}) {
+    return total + (tip * total) + (tax * total);
+  }
+
+  //const bill = tipCalc();     //128
+  const bill = tipCalc({ total: 200, tip: 0.2});   //266
+  console.log(bill);
+</script>
+</body>
+</html>

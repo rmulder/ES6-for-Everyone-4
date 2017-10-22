@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>字符串方法</title>
+</head>
+<body>
+<script>
+  const course = 'RFB2';
+  const flightNumber = '20-AC2018-jz';
+  const accountNumber = '825242631RT0001';
+
+  const make = 'BMW';
+  const model = 'X5';
+  const color = 'Royal Blue';
+
+
+  // .startWith()
+  console.log(course.startsWith('RF'));   //true
+  console.log(course.startsWith('rf'));   //false
+  console.log(course.startsWith('B',2));   //true
+  console.log(flightNumber.startsWith('AC',3));  //true
+
+  // .endsWith()
+  console.log(flightNumber.endsWith('jz'));  //true
+  console.log(flightNumber.endsWith('18',3)); //false
+  console.log(flightNumber.endsWith('18',9)); //true
+  console.log(accountNumber.endsWith('RT',11));  //true
+
+  // .includes()
+  console.log(flightNumber.includes('AC'));   //true
+  console.log(course.includes('FB'));    //true
+
+
+  // .repeat()
+  let str = 'abc'.repeat(10);
+  console.log(str);
+
+  function leftPad(str,length = 20) {
+    return `${' '.repeat(length - str.length)}${str}`
+  }
+
+  console.log(leftPad(make));
+  console.log(leftPad(model));
+  console.log(leftPad(color));
+</script>
+</body>
+</html>

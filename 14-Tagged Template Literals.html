@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .h1{
+      background: red;
+    }
+  </style>
+</head>
+<body>
+<script>
+  function highlight(strings,...values) {
+//    debugger;
+    let str = '';
+    strings.forEach((string,index) => {
+//      str += string + (values[index] || '');
+      str += `${string}<span contenteditable class="h1">${values[index] || ''}</span>`
+    });
+    return str;
+  }
+  // strings是一个数组，
+  // strings: Array[4]
+  // 0: "My dog's name is "
+  // 1: " and he is "
+  // 2: " years old"
+
+  // values: Array[3]
+  // 0: "Snickers"
+  // 1: 100
+  const name = 'Snickers';
+  const age = 100;
+
+  const sentence = highlight`My dog's name is ${name} and he is ${age} years old`;
+
+  console.log(sentence)
+
+  document.body.innerHTML = sentence;
+
+</script>
+</body>
+</html>

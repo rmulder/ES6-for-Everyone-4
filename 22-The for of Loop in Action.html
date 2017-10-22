@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>for of循环</title>
+</head>
+<body>
+<script>
+  const cuts = ['Chuck', 'Brisket', 'Shank', 'Short Rib'];
+
+  for(const cut of cuts.entries()) {
+    console.log(cut);
+  }
+  // [0, "Chuck"]
+  // [1, "Brisket"]
+  // [2, "Shank"]
+  // [3, "Short Rib"]
+
+  //我们可以使用解构
+  for(const [i, c] of cuts.entries()) {
+    console.log(i);
+    console.log(c);
+  }
+  // 0
+  // Chuck
+  // 1
+  // Brisket
+  // 2
+  // Shank
+  // 3
+  // Short Rib
+
+  function addUpNumber() {
+    let total = 0;
+    for(let num of arguments) {
+      total += num;
+    }
+    return total;
+  }
+  console.log(addUpNumber(10,23,52,34,34));   // 153
+
+  const name = 'Wes Bos';
+  for(const char of name) {
+    console.log(char);
+  }
+  // W
+  // e
+  // s
+  //
+  // B
+  // o
+  // s
+
+</script>
+</body>
+</html>

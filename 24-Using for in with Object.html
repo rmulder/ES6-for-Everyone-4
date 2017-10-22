@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>for in循环</title>
+</head>
+<body>
+<script>
+  const apple = {
+    color: 'Red',
+    size: 'Medium',
+    weight: 50,
+    sugar: 10
+  };
+
+//  for (const prop of apple) {
+//    console.log(prop);
+//  }
+
+  //Uncaught TypeError: apple is not iterable 报错，apple是不可以迭代的
+
+  console.log(Object.keys(apple));   //["color", "size", "weight", "sugar"]
+  for (const prop of Object.keys(apple)) {
+    console.log(prop);
+  }
+  // color
+  // size
+  // weight
+  // sugar
+
+  // 那么我们想要得到值呢？
+  for (const prop of Object.keys(apple)) {
+    const value = apple[prop];
+    console.log(prop, value);
+  }
+  // color Red
+  // size Medium
+  // weight 50
+  // sugar 10
+
+
+  // 用for in就会简单很多
+  for( const prop in apple) {
+    const value = apple[prop];
+    console.log(prop, value);
+  }
+  // color Red
+  // size Medium
+  // weight 50
+  // sugar 10
+
+</script>
+</body>
+</html>

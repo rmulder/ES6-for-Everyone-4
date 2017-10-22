@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>for of循环</title>
+</head>
+<body>
+<script>
+  const cuts = ['Chuck', 'Brisket', 'Shank', 'Short Rib'];
+//  1.普通for循环
+  for(let i = 0;i < cuts.length;i++) {
+    console.log(cuts[i]);
+  }
+  // Chuck
+  // Brisket
+  // Shank
+  // Short Rib
+
+
+//  2.forEach 没办法用break和continue
+  cuts.forEach((cut) => {
+    console.log(cut);
+  });
+  // Chuck
+  // Brisket
+  // Shank
+  // Short Rib
+
+//  3.for...in 循环的是索引
+  for(const cut in cuts) {
+    console.log(cut);
+  }
+  // 0
+  // 1
+  // 2
+  // 3
+
+
+//  4.for in  注意循环会有个问题，for...in会循环到prototype里面去
+  for(const index in cuts) {
+    console.log(cuts[index]);
+  }
+  // Chuck
+  // Brisket
+  // Shank
+  // Short Rib
+
+
+//  5.for of 可以用break和continue
+  for(const cut of cuts) {
+//    if(cut === 'Brisket') {
+//      continue;
+//    }
+    console.log(cut);
+  }
+  // Chuck
+  // Brisket
+  // Shank
+  // Short Rib
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Spread Exercise</title>
+  <style>
+    .jump span {
+      display: inline-block;
+      transition: transform 0.2s;
+    }
+    .jump span:hover {
+      color: #f00;
+      transform: translateY(-10px) rotate(10deg) scale(2);
+    }
+  </style>
+</head>
+<body>
+<h2 class="jump">SPREAD!</h2>
+<script>
+  const heading = document.querySelector('.jump');
+//  const spans = sparanWrap(heading.textContent);
+//  heading.innerHTML = spans;
+//  console.log(spans);
+
+  heading.innerHTML = sparanWrap(heading.textContent);
+
+  function sparanWrap(word) {
+    return [...word].map(letter => `<span>${letter}</span>`).join('');
+  }
+
+
+</script>
+</body>
+</html>
