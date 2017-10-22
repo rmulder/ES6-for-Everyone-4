@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  const inventers = ['Einstein', 'Newton', 'Galileo'];
+  const newInventors = ['Mask', 'Jobs'];
+  inventers.push(newInventors);
+  console.log(inventers)   // ['Einstein', 'Newton', 'Galileo', Array[2]]
+  // 实际我们想要得到的是 ['Einstein', 'Newton', 'Galileo'， 'Mask', 'Jobs'];
+
+  const inventers1 = ['Einstein', 'Newton', 'Galileo'];
+  const newInventors1 = ['Mask', 'Jobs'];
+  inventers.push.apply(inventers1, newInventors1);
+  console.log(inventers1);    //  ["Einstein", "Newton", "Galileo", "Mask", "Jobs"]
+
+
+  const inventers2 = ['Einstein', 'Newton', 'Galileo'];
+  const newInventors2 = ['Mask', 'Jobs'];
+  const arr2 = inventers2.concat(newInventors2)
+  console.log(arr2)          //  ["Einstein", "Newton", "Galileo", "Mask", "Jobs"]
+
+  const inventers3 = ['Einstein', 'Newton', 'Galileo'];
+  const newInventors3 = ['Mask', 'Jobs'];
+  const arr3 = [...inventers3, ...newInventors3];
+  console.log(arr3);        //  ["Einstein", "Newton", "Galileo", "Mask", "Jobs"]
+
+  const inventers4 = ['Einstein', 'Newton', 'Galileo'];
+  const newInventors4 = ['Mask', 'Jobs'];
+  inventers4.push(...newInventors4);
+  console.log(inventers4)   //  ["Einstein", "Newton", "Galileo", "Mask", "Jobs"]
+
+
+  const name = ['Wes', 'Bos'];
+  function sayHi(first, last) {
+    console.log(`Hey therr ${first} ${last}`)
+  }
+
+  sayHi(name[0],name[1]);    // Hey there Wes Bos
+  sayHi(...name);            // Hey there Wes Bos
+</script>
+</body>
+</html>
