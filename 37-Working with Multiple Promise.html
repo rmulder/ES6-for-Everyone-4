@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  const weather = new Promise(resolve => {
+    setTimeout(() => {
+      resolve({temp: 29, conditions: 'Sunny with Clouds'});
+    },2000)
+  });
+
+  const tweets = new Promise(resolve => {
+    setTimeout(() => {
+      resolve(['I like cake', 'BBQ is good too!']);
+    },500)
+  })
+
+  Promise
+    .all([weather, tweets])
+    .then(responses => {
+      console.log(responses)  // [{temp: 29, conditions: "Sunny with Clouds"}, ["I like cake", "BBQ is good too!"]]
+      const [weatherInfo, tweetsInfo] = responses;
+      console.log(weatherInfo, tweetsInfo)
+    })
+
+
+  const postsPromise = fetch('http://wesbos.com/wp-json/wp/v2/posts');
+  const getsPromise = fetch('http://api.fueye.org/index/all')
+
+  Promise
+    .all([postsPromise, getsPromise])
+    .then(responses => {
+      return Promise.all(responses.map(res => res.json()))
+    })
+    .then(responses => {
+      console.log(responses)     // [Array(10), {…}]
+      const [data1, data2] = responses;
+      console.log(data1)      // [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+      console.log(data2)      // {listEvent: Array(1), listNews: Array(6), listOfficial: Array(3), listMember: Array(6), listWebsite: Array(3)}
+    })
+</script>
+</body>
+</html>
