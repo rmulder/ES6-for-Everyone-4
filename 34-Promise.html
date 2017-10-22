@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Promise</title>
+</head>
+<body>
+<script>
+  console.log('Going to fetch the lastest posts from wes blog')
+  const postsPromise = fetch('http://wesbos.com/wp-json/wp/v2/posts');
+  const getsPromise = fetch('http://api.fueye.org/index/all')
+  console.log('Done');
+  console.log(postsPromise);    // Promise {<pending>}
+  console.log(getsPromise);     // Promise {<pending>}
+
+  postsPromise
+    .then(data => data.json())
+    .then(data => {
+      console.log(data)
+    })
+    .catch(err => {   // 请求失败的操作
+      console.error(err);
+    });
+  getsPromise
+    .then(data => data.json())
+    .then(data => {
+      console.log(data)
+    })
+    .catch(err => {
+      console.error(err)
+    })
+</script>
+</body>
+</html>

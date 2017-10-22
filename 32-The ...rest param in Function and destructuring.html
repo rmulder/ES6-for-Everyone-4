@@ -5,6 +5,26 @@
   <title>Title</title>
 </head>
 <body>
+<script>
+  function convertCurrency(rate, ...amounts) {
+//    console.log(rate, amounts);
+    return amounts.map(amount => amount * rate)
+  }
+  const amounts = convertCurrency(1.54, 10, 23, 52, 1, 56);
+  console.log(amounts);    //  [15.4, 35.42, 80.08, 1.54, 86.24000000000001]
 
+
+  const runner = ['Wes Bos', 123, 5.5, 5, 3, 6, 35];
+  const [name, id, ...runs] = runner
+  console.log(name)     // 'Wes Bos'
+  console.log(id)       // 123
+  console.log(runs)     // [5.5, 5, 3, 6, 35]
+
+  const team = ['Wes', 'Kait', 'Lux', 'Sheena', 'Kelly'];
+  const [captain, assistant, ...players] = team;
+  console.log(captain)  // Wes
+  console.log(assistant)// Kait
+  console.log(players)  // ['Lux', 'Sheena', 'Kelly']
+</script>
 </body>
 </html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  const p = new Promise((resolve, reject) => {
+    resolve('Wes is cool');
+  });
+
+  p.then(data => {
+    console.log(data);    // Wes is cool
+  })
+
+  const p1 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      reject('Error wes isn\' cool')
+    },3000)
+  });
+
+  p1.then(data => {
+    console.log(data)
+  }).catch(err => {
+    console.error(err)
+  })
+</script>
+</body>
+</html>
